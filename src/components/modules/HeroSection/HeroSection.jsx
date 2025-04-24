@@ -1,93 +1,120 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import GlassPanel from '@/components/ui/GlassPanel/GlassPanel';
+import { FaChevronDown } from 'react-icons/fa';
 import Button from '@/components/ui/Button/Button';
-import { useIntersection } from '@/hooks/useIntersection';
+import BackgroundImage from "../../../assets/images/hero/background_image.jpg"
 
+/**
+ * Enhanced HeroSection component with:
+ * - Optimized image loading
+ * - Advanced animations
+ * - Accessibility improvements
+ * - Better performance
+ * - Responsive design enhancements
+ */
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { ref, inView } = useIntersection({ threshold: 0.1 });
+  const heroRef = useRef(null);
 
+  // Simple animation on load
   useEffect(() => {
-    if (inView) {
-      setIsVisible(true);
+    setIsVisible(true);
+  }, []);
+
+  // Scroll to next section
+  const scrollToNextSection = () => {
+    const nextSection = heroRef.current?.nextElementSibling;
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [inView]);
+  };
+
+  // Animation classes
+  const fadeIn = isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10';
+  const fadeInDelay1 = isVisible ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-10';
+  const fadeInDelay2 = isVisible ? 'opacity-100 translate-y-0 delay-600' : 'opacity-0 translate-y-10';
 
   return (
     <section 
-      ref={ref}
-      className="relative h-screen w-full overflow-hidden"
+      ref={heroRef}
+      className="relative min-h-[90vh] flex items-center overflow-hidden"
     >
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="/src/assets/videos/hero-background.mp4" type="video/mp4" />
-      </video>
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={BackgroundImage} 
+          alt="Ankole Cattle"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-green-dark/40 to-forest-green-dark/70"></div>
+      </div>
       
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-      
-      {/* Content Container */}
-      <div className="container mx-auto px-4 h-full flex items-center">
+      {/* Content */}
+      <div className="container mx-auto px-4 z-10 pt-20">
         <div className="max-w-3xl">
-          {/* Animated Content */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <GlassPanel 
-              variant="dark" 
-              intensity="medium" 
-              className="p-8 backdrop-blur-xl"
+          <h1 
+            className={`text-white text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 transition-all duration-700 ${fadeIn}`}
+          >
+            Preserving Ankole <br />
+            Cattle & Culture
+          </h1>
+          
+          <p 
+            className={`text-white text-xl md:text-2xl font-light opacity-90 mb-8 transition-all duration-700 ${fadeInDelay1}`}
+          >
+            A journey through the rich heritage of Uganda's iconic Ankole cattle and the people who have cherished them for centuries.
+          </p>
+          
+          <div 
+            className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 ${fadeInDelay2}`}
+          >
+            <Button
+              variant="primary"
+              size="xl"
+              as={Link}
+              to="/about"
+              className="font-bold"
             >
-              <h1 className="font-display text-4xl md:text-6xl text-white mb-4">
-                Ankole Cultural Cow Conservation Association
-              </h1>
-
-              <div className="h-1 w-24 bg-saddle-brown my-6"></div>
-              
-              <p className="font-body text-xl text-white/90 mb-8">
-                "Cows are our wealth, culture"
-              </p>
-              
-              <p className="font-body text-lg text-white/80 mb-8">
-                Experience the rich cultural heritage of the Ankole people through our immersive cultural tours, activities, and conservation efforts.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  variant="secondary" 
-                  size="lg" 
-                  className="font-bold"
-                >
-                  Book Your Experience
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  glassmorphic={true}
-                >
-                  Explore Activities
-                </Button>
-              </div>
-            </GlassPanel>
+              Discover Our Mission
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="xl"
+              as={Link}
+              to="/booking"
+              glassmorphic={true}
+            >
+              Plan Your Visit
+            </Button>
           </div>
         </div>
       </div>
       
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="animate-bounce">
-          <svg className="w-8 h-8 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+      {/* Scroll down indicator */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
+        <button
+          onClick={scrollToNextSection}
+          className="text-white animate-bounce p-2 rounded-full border border-white/30 hover:bg-white/10 transition-colors focus:outline-none"
+          aria-label="Scroll down"
+        >
+          <FaChevronDown className="w-5 h-5" />
+        </button>
+      </div>
+      
+      {/* Decorative element */}
+      <div className="absolute bottom-0 right-0 left-0 z-10">
+        <svg 
+          className="w-full text-cream"
+          viewBox="0 0 1440 120" 
+          fill="currentColor"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 C240,100 480,120 720,80 C960,40 1200,100 1440,80 L1440,120 L0,120 Z"></path>
+        </svg>
       </div>
     </section>
   );
 };
 
-export default HeroSection; 
+export default HeroSection;

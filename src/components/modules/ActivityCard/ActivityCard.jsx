@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GlassPanel from '@/components/ui/GlassPanel/GlassPanel';
 
 const ActivityCard = ({
   title,
@@ -12,59 +11,37 @@ const ActivityCard = ({
   onClick,
 }) => {
   return (
-    <GlassPanel
-      variant="default"
-      intensity="medium"
-      className="h-full overflow-hidden group"
-      animate={true}
+    <div 
+      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col cursor-pointer"
       onClick={onClick}
     >
-      {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48">
         <img 
           src={imageSrc} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          alt={title}
+          className="w-full h-full object-cover" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        
-        {/* Activity Time */}
-        <div className="absolute bottom-4 left-4">
-          <GlassPanel
-            variant="dark"
-            intensity="medium"
-            rounded="lg"
-            className="px-3 py-1 text-sm font-medium text-white"
-          >
-            {time} · {duration}
-          </GlassPanel>
+        <div className="absolute top-0 left-0 m-3 bg-white bg-opacity-90 backdrop-blur-sm p-2 rounded-full shadow-sm">
+          <div className="text-forest-green-dark">
+            {icon}
+          </div>
         </div>
       </div>
       
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-center mb-4">
-          {/* Icon Circle */}
-          <div className="mr-3 p-2 rounded-full bg-forest-green/10 text-forest-green">
-            {icon}
+      <div className="p-5 flex flex-col flex-grow">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4 flex-grow">{description}</p>
+        
+        <div className="mt-auto flex justify-between items-center pt-3 border-t border-gray-100">
+          <div className="text-sm text-gray-500">
+            <span className="font-medium text-forest-green-dark">{time}</span>
           </div>
-          
-          <h3 className="font-display text-xl text-forest-green-dark">{title}</h3>
-        </div>
-        
-        <p className="font-body text-gray-700">
-          {description}
-        </p>
-        
-        {/* Learn More Indicator */}
-        <div className="mt-4 flex items-center text-saddle-brown font-medium">
-          <span>Learn more</span>
-          <svg className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
+          <div className="text-sm text-gray-500">
+            <span className="font-medium text-forest-green-dark">{duration}</span>
+          </div>
         </div>
       </div>
-    </GlassPanel>
+    </div>
   );
 };
 

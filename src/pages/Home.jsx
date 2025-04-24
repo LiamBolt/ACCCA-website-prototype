@@ -6,6 +6,11 @@ import Button from '@/components/ui/Button/Button';
 import ActivityCard from '@/components/modules/ActivityCard/ActivityCard';
 import TestimonialCarousel from '@/components/modules/TestimonialCarousel/TestimonialCarousel';
 import { useIntersection } from '@/hooks/useIntersection';
+import churning from "../../src/assets/images/backgrounds/churning.jpeg";
+import culturalDance from "../../src/assets/images/backgrounds/ankole_dance.jpg";
+import ACCCA_trail from "../../src/assets/images/backgrounds/ACCCA_trail.png";
+import milking from "../../src/assets/images/backgrounds/milking.jpg";
+import grazing from "../../src/assets/images/backgrounds/grazing.jpg";
 
 // Import icons (assuming these are created or imported from a library)
 import { CowIcon, MilkIcon, DanceIcon, NatureIcon } from '@/components/ui/Icons';
@@ -23,7 +28,7 @@ const HomePage = () => {
       title: 'Cow Milking',
       description: 'Learn traditional milking techniques from Ankole herders and participate in this daily ritual.',
       icon: <CowIcon className="w-6 h-6" />,
-      imageSrc: '/src/assets/images/activities/cow-milking.jpg',
+      imageSrc: milking,
       time: '6 AM or 7 PM',
       duration: '60 min'
     },
@@ -32,7 +37,7 @@ const HomePage = () => {
       title: 'Milk Churning & Ghee Making',
       description: 'Discover how Ankole families create traditional dairy products using age-old methods.',
       icon: <MilkIcon className="w-6 h-6" />,
-      imageSrc: '/src/assets/images/activities/milk-churning.jpg',
+      imageSrc: churning,
       time: 'After milking',
       duration: '120 min'
     },
@@ -41,7 +46,7 @@ const HomePage = () => {
       title: 'Cultural Dancing',
       description: 'Experience vibrant Banyankole dance performances that celebrate cattle culture.',
       icon: <DanceIcon className="w-6 h-6" />,
-      imageSrc: '/src/assets/images/activities/cultural-dancing.jpg',
+      imageSrc: culturalDance,
       time: 'Evenings',
       duration: '40 min'
     },
@@ -50,7 +55,7 @@ const HomePage = () => {
       title: 'Nature Walk',
       description: 'Explore the 12.7km trail connecting culturally significant sites in the region.',
       icon: <NatureIcon className="w-6 h-6" />,
-      imageSrc: '/src/assets/images/activities/nature-walk.jpg',
+      imageSrc: ACCCA_trail,
       time: 'Flexible',
       duration: 'Full day'
     }
@@ -87,7 +92,7 @@ const HomePage = () => {
                 For over 20 years, the Ankole Cultural Cow Conservation Association has worked to protect this magnificent breed while celebrating the rich cultural heritage of the Ankole people.
               </p>
               
-              <div className="mt-8">
+              <div className="mt-8">++++
                 <Button
                   variant="outline"
                   size="lg"
@@ -174,7 +179,7 @@ const HomePage = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/backgrounds/cta-background.jpg"
+            src={grazing}
             alt="Ankole cattle grazing"
             className="w-full h-full object-cover"
           />

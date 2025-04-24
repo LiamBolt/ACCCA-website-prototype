@@ -7,12 +7,12 @@ import PageContainer from '@/components/templates/PageContainer';
 import { products } from '@/data/productsData';
 
 const ShopPage = () => {
-  const [filter, setFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('all');
   const categories = ['all', 'crafts', 'clothing', 'accessories', 'books'];
   
-  const filteredProducts = filter === 'all' 
+  const filteredProducts = activeFilter === 'all' 
     ? products 
-    : products.filter(product => product.category === filter);
+    : products.filter(product => product.category === activeFilter);
 
   return (
     <PageContainer>
@@ -29,8 +29,8 @@ const ShopPage = () => {
         
         <FilterButtons 
           categories={categories} 
-          activeFilter={filter} 
-          setFilter={setFilter} 
+          activeFilter={activeFilter} 
+          setFilter={setActiveFilter} 
           className="justify-center mb-12"
         />
         

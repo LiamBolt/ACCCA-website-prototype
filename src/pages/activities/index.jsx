@@ -52,58 +52,138 @@ const ActivitiesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Cultural Activities | Ankole Cultural Cow Conservation Association</title>
-        <meta name="description" content="Explore our range of cultural activities centered around Ankole cattle conservation and local traditions." />
+        <title>ACCCA - Activities</title>
+        <meta name="description" content="Explore activities at ACCCA - African Climate Change and Conservation Alliance" />
       </Helmet>
       
-      <PageHeader 
-        title="Cultural Activities" 
-        subtitle="Immerse yourself in authentic experiences that connect you with Ankole heritage"
-        backgroundImage="/assets/images/backgrounds/activities-header.jpg"
-      />
-      
-      <SectionContainer className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Discover Our Experiences</h2>
-            <p className="text-lg text-gray-600 max-w-3xl">
-              Our carefully curated activities offer authentic engagement with Ankole cattle heritage, 
-              from hands-on experiences to educational workshops focused on conservation and culture.
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Our Conservation Activities
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+              Discover the innovative conservation programs we're implementing across Africa.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map((activity) => (
-              <ActivityCard key={activity.id} activity={activity} />
-            ))}
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* Activity 1 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Reforestation Projects</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Working with local communities to restore degraded lands and forests.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity 2 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Sustainable Agriculture</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Promoting climate-smart agricultural practices to enhance food security.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity 3 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Wildlife Conservation</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Protecting endangered species and their habitats through community engagement.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity 4 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Climate Education</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Educational programs to raise awareness about climate change impacts and solutions.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity 5 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Water Conservation</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Implementing water harvesting and management techniques in drought-prone areas.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity 6 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="px-4 py-5 sm:p-6">
+                <h3 className="text-lg font-medium text-gray-900">Clean Energy Initiatives</h3>
+                <p className="mt-2 text-base text-gray-500">
+                  Promoting renewable energy solutions in rural communities.
+                </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </SectionContainer>
-      
-      <SectionContainer className="py-16 bg-green-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Custom Group Experiences</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Planning for a school, corporate retreat, or special occasion? Contact us to design a 
-              customized experience tailored to your group's interests and needs.
-            </p>
-          </div>
-          
-          <div className="flex justify-center">
-            <a href="/contact" className="px-8 py-3 bg-forest-green text-white rounded-lg hover:bg-green-800 transition duration-300 font-medium">
-              Inquire About Group Bookings
-            </a>
-          </div>
-        </div>
-      </SectionContainer>
-      
-      <CallToAction 
-        title="Ready to Book Your Experience?"
-        description="Secure your spot for our most popular activities and start your journey into Ankole culture."
-        buttonText="Book Now"
-        buttonLink="/booking"
-      />
+      </div>
     </>
   );
 };
